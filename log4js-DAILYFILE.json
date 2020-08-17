@@ -1,0 +1,25 @@
+{
+    "appenders": {
+        "CONSOLE": {
+            "type": "console"
+        },
+        "DAILYFILE": {
+            "type": "dateFile",
+            "filename": "./logs/node.log",
+            "pattern": ".yyyy-MM-dd-hh-mm-ss",
+            "alwaysIncludePattern": false,
+            "daysToKeep": 13,
+            "maxLogSize": 1024,
+            "keepFileExt": true
+        }
+    },
+    "categories": {
+        "default": {
+            "appenders": [
+                "DAILYFILE",
+                "CONSOLE"
+            ],
+            "level": "INFO"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "appenders": {
+        "FILE": {
+            "backups": 30,
+            "filename": "./logs/web.log",
+            "maxLogSize": 20480000,
+            "type": "file"
+        }
+    },
+    "categories": {
+        "default": {
+            "appenders": [
+                "FILE"
+            ],
+            "level": "INFO"
+        }
+    }
+}

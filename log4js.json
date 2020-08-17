@@ -1,0 +1,55 @@
+{
+    "appenders": {
+        "CONSOLE": {
+            "type": "console"
+        },
+        "CONSOLEERR": {
+            "appender": "CONSOLE",
+            "level": "error",
+            "type": "logLevelFilter"
+        },
+        "FILE": {
+            "backups": 30,
+            "filename": "./logs/file.log",
+            "maxLogSize": 20971520,
+            "type": "file"
+        },
+        "DAILYFILE": {
+            "type": "dateFile",
+            "filename": "./logs/datefile.log",
+            "pattern": ".yyyy-MM-dd-hh",
+            "alwaysIncludePattern": false,
+            "daysToKeep": 13,
+            "maxLogSize": 20971520,
+            "keepFileExt": true
+        },
+        "CUSTOMDAILYFILE": {
+            "type": "dateFile",
+            "filename": "./logs/customdatefile.log",
+            "pattern": ".yyyy-MM-dd-hh",
+            "alwaysIncludePattern": false,
+            "daysToKeep": 13,
+            "keepFileExt": true,
+            "layout": {
+                "type": "pattern",
+                "pattern": "%d{ISO8601_WITH_TZ_OFFSET} %d{yyyy-MM-dd hh:mm:ss.SSS.O} %p %c %m%n"
+            }
+        },
+        "OUT": {
+            "type": "stdout"
+        },
+        "OUTERR": {
+            "appender": "OUT",
+            "level": "error",
+            "type": "logLevelFilter"
+        }
+    },
+    "categories": {
+        "default": {
+            "appenders": [
+                "DAILYFILE"
+            ],
+            "level": "INFO"
+        }
+    }
+}
